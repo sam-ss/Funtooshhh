@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="UXDivers.Artina.Grial.LineSituationGraphPage"
+	Style="{StaticResource MainMenuStyle}"
+  xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
+  xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+  xmlns:commonViews="clr-namespace:UXDivers.Artina.Grial.Views.RLC.Common;assembly=UXDivers.Artina.Grial"
+  BackgroundColor="#DFDFDF"
+	Title="Line Situation"  >
+  <!--<StackLayout Orientation="Vertical" VerticalOptions="Fill">
+    <commonViews:RlcNavBar />-->
+    <ScrollView>
+      <StackLayout VerticalOptions="Fill">
+        <!-- ARTINA BUTTON -->
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+          <chart:SfChart x:Name="Chart" SelectionChanged="Chart_SelectionChanged">
+            <chart:SfChart.Title>
+              <chart:ChartTitle Text="Limit, Outstanding By TRC" TextColor="Black" TextAlignment="Center">
+              </chart:ChartTitle>
+            </chart:SfChart.Title>
+            <chart:SfChart.PrimaryAxis>
+              <chart:CategoryAxis>
+                <chart:CategoryAxis.Title>
+                  <chart:ChartAxisTitle Text ="TRC"/>
+                </chart:CategoryAxis.Title>
+              </chart:CategoryAxis>
+            </chart:SfChart.PrimaryAxis>
+            <chart:SfChart.SecondaryAxis>
+              <!--<chart:NumericalAxis Minimum="0" Maximum="1000000">-->
+              <chart:NumericalAxis LabelCreated ="secondaryAxis_LabelCreated">
+                <chart:NumericalAxis.Title>
+                  <chart:ChartAxisTitle Text ="Amount (EUR)"/>
+                </chart:NumericalAxis.Title>
+              </chart:NumericalAxis>
+            </chart:SfChart.SecondaryAxis>
+            <chart:SfChart.Legend>
+              <chart:ChartLegend />
+            </chart:SfChart.Legend>
+            <chart:SfChart.Series>
+              <chart:ColumnSeries
+                  XBindingPath="TrcType"
+                  YBindingPath="LimitAmount"
+                  Label="Limit"
+                  EnableDataPointSelection = "true"
+                  EnableAnimation="True"
+                  AnimationDuration="0.8"
+                  Color="#205484">
+                <chart:ColumnSeries.DataMarker>
+                  <chart:ChartDataMarker LabelContent="YValue">
+                    <chart:ChartDataMarker.LabelStyle>
+                      <chart:DataMarkerLabelStyle LabelPosition = "Auto"/>
+                    </chart:ChartDataMarker.LabelStyle>
+                  </chart:ChartDataMarker>
+                </chart:ColumnSeries.DataMarker>
+
+              </chart:ColumnSeries>
+              <chart:ColumnSeries
+                  XBindingPath="TrcType"
+                  YBindingPath="OutstandingAmount"
+                  Label="Outstanding"
+                  EnableDataPointSelection = "true"
+                   EnableAnimation="True"
+                  AnimationDuration="0.8"
+                  Color="#E60129">
+                <chart:ColumnSeries.DataMarker>
+                  <chart:ChartDataMarker>
+                    <chart:ChartDataMarker.LabelStyle>
+                      <chart:DataMarkerLabelStyle LabelPosition = "Auto" />
+                    </chart:ChartDataMarker.LabelStyle>
+                  </chart:ChartDataMarker>
+                </chart:ColumnSeries.DataMarker>
+              </chart:ColumnSeries>
+
+            </chart:SfChart.Series>
+          </chart:SfChart>
+        </AbsoluteLayout>
+      </StackLayout>
+    </ScrollView>
+  <!--</StackLayout>-->
+    
+  
+</ContentPage>

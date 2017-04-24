@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="UXDivers.Artina.Grial.SamplesListFromCategoryPage"
+	Style="{StaticResource MainMenuStyle}"
+  xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
+  xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+  BackgroundColor="#DFDFDF"
+	Title="Line Situation"  >
+  <ScrollView>
+    <StackLayout VerticalOptions="Fill" Padding="20" Spacing="10">
+      <!-- ARTINA BUTTON -->
+      <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+        <chart:SfChart x:Name="Chart" >
+          <!--<chart:SfChart.Behaviors>
+            <local:ChartSelectionBehaviors/>
+          </chart:SfChart.Behaviors>-->
+          <chart:SfChart.PrimaryAxis>
+            <chart:CategoryAxis>
+              <chart:CategoryAxis.Title>
+                <chart:ChartAxisTitle Text ="TRC"/>
+              </chart:CategoryAxis.Title>
+            </chart:CategoryAxis>
+          </chart:SfChart.PrimaryAxis>
+          <chart:SfChart.SecondaryAxis>
+            <chart:NumericalAxis>
+              <chart:NumericalAxis.Title>
+                <chart:ChartAxisTitle Text ="Amount(EUR)"/>
+              </chart:NumericalAxis.Title>
+            </chart:NumericalAxis>
+          </chart:SfChart.SecondaryAxis>
+          <chart:SfChart.Legend>
+            <chart:ChartLegend />
+          </chart:SfChart.Legend>
+          <chart:SfChart.Series>
+            <chart:StackingColumnSeries
+                ItemsSource="{Binding LineSituation}"
+                XBindingPath="TrcType"
+                YBindingPath="OutstandingAmount"
+                Label="Outstanding"
+                DataMarkerPosition = "Center"
+                EnableDataPointSelection = "false"
+                Color="#EBA068">
+              <chart:StackingColumnSeries.DataMarker>
+                <chart:ChartDataMarker>
+                  <chart:ChartDataMarker.LabelStyle>
+                    <chart:DataMarkerLabelStyle LabelPosition = "Center"/>
+                  </chart:ChartDataMarker.LabelStyle>
+                </chart:ChartDataMarker>
+              </chart:StackingColumnSeries.DataMarker>
+            </chart:StackingColumnSeries>
+            <chart:StackingColumnSeries
+                ItemsSource="{Binding LineSituation}"
+                XBindingPath="TrcType"
+                YBindingPath="LimitAmount"
+                Label="Limit"
+                EnableDataPointSelection = "false"
+                Color="#FFD3B1"/>
+          </chart:SfChart.Series>
+        </chart:SfChart>
+      </AbsoluteLayout>
+    </StackLayout>
+  </ScrollView>
+</ContentPage>

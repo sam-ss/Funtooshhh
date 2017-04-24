@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="UXDivers.Artina.Grial.Views.RLC.Templates.BankingProductItemTemplate"
+             	xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared">
+  <ContentView.Content>
+    <StackLayout
+    Spacing="0"
+    Padding="0"
+    HorizontalOptions="Fill" >
+
+      <StackLayout
+        Spacing="20"
+        Padding="0, 0, 0, 0"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand"
+        Orientation="Horizontal" >
+
+        <BoxView
+          BackgroundColor="{ Binding BackgroundColor }"
+          WidthRequest="4"/>
+
+        <!--<Label
+          Text="{ Binding Icon }"
+          FontSize="20"
+          Style="{ StaticResource FontIcon }"
+          TextColor="#A4A3A3"
+          HorizontalOptions="Start"
+          VerticalOptions="Center"
+          WidthRequest="30"
+          VerticalTextAlignment="Center"
+          HorizontalTextAlignment="Center"
+				/>-->
+        <StackLayout
+                Padding="0, 0, 0, 0"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Center"              
+                Orientation="Vertical" >
+          <Label
+            Text="{ Binding Name }"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Center"
+				/>
+          <!--<Label
+             FontSize="10"
+          Text="{ Binding Country }"
+          HorizontalOptions="FillAndExpand"
+          VerticalOptions="Center"
+				/>-->
+        </StackLayout>
+      
+
+        <!--<Label
+          VerticalTextAlignment="Center"
+          WidthRequest="20"
+          HorizontalOptions="End"
+          VerticalOptions="Center"
+          Text="&#xf105;"
+          TextColor="{ Binding BackgroundColor }"
+          Style="{ DynamicResource MainMenu_Right_Chevron_Style }" />-->
+
+      </StackLayout>
+
+      <!-- Bottom Line -->
+      <StackLayout
+        BackgroundColor="{ Binding BackgroundColor }"
+        HeightRequest="1"
+        VerticalOptions="End"
+        Opacity=".5"/>
+    </StackLayout>
+  </ContentView.Content>
+</ContentView>

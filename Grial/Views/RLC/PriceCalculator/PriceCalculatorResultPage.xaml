@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage  xmlns="http://xamarin.com/schemas/2014/forms"
+              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              x:Class="UXDivers.Artina.Grial.Views.RLC.PriceCalculator.PriceCalculatorResultPage"             	
+	            xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared" 
+              Title="Result"  
+              xmlns:commonViews="clr-namespace:UXDivers.Artina.Grial;assembly=UXDivers.Artina.Grial"
+              xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms">
+  <ContentPage.Content>
+  <ScrollView>
+    <StackLayout Padding="10"  Orientation="Vertical" x:Name="layout" >
+      <!-- Graph -->
+      <Label>
+        <Label.FormattedText>
+          <FormattedString>
+            <FormattedString.Spans>
+              <Span
+								Text="&#xf200; "
+								FontFamily="{x:Static artina:FontAwesome.FontName}" />
+              <Span
+								Text="Availablity, Outstanding Projection" />
+            </FormattedString.Spans>
+          </FormattedString>
+        </Label.FormattedText>
+      </Label>
+      <!--<commonViews:CustomNavBar />-->
+      <chart:SfChart x:Name="ChartPie" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <chart:SfChart.Title>          
+        </chart:SfChart.Title>
+        <chart:SfChart.Legend>
+          <chart:ChartLegend/>
+        </chart:SfChart.Legend>
+        <chart:PieSeries ItemsSource="{Binding Situation}"
+                           XBindingPath="Label" YBindingPath="OutstandingAmount"   EnableAnimation="True"
+              AnimationDuration="0.8">
+          <chart:PieSeries.ColorModel>
+            <chart:ChartColorModel Palette="Custom" CustomBrushes="{Binding Colors}">
+            </chart:ChartColorModel>
+          </chart:PieSeries.ColorModel>
+          <chart:PieSeries.DataMarker>
+            <chart:ChartDataMarker LabelContent="Percentage" />
+          </chart:PieSeries.DataMarker>
+        </chart:PieSeries>
+      </chart:SfChart>
+      <!--<BoxView Style="{ DynamicResource SpacerThemeShowCaseStyle }" />-->
+      <BoxView HeightRequest="1" BackgroundColor="#838383" />
+      <!--<BoxView Style="{ DynamicResource SpacerThemeShowCaseStyle }" />-->
+
+      <StackLayout Padding="3" Orientation="Horizontal">
+        <Label>
+          <Label.FormattedText>
+            <FormattedString>
+              <FormattedString.Spans>
+                <Span
+                  Text="&#xf196; "
+                  FontFamily="{x:Static artina:FontAwesome.FontName}" />
+                <Span Text="Counterpart : " />
+              </FormattedString.Spans>
+            </FormattedString>
+          </Label.FormattedText>
+        </Label>        
+        <Label Text="{Binding Name}"   FontSize="14" FontFamily="Source Sans Pro Semibold"/>        
+      </StackLayout>
+      <StackLayout Padding="3" Orientation="Horizontal">
+        <Label>
+          <Label.FormattedText>
+            <FormattedString>
+              <FormattedString.Spans>
+                <Span
+                  Text="&#xf0ac; "
+                  FontFamily="{x:Static artina:FontAwesome.FontName}" />
+                <Span Text="Country : " />
+              </FormattedString.Spans>
+            </FormattedString>
+          </Label.FormattedText>
+        </Label>
+        <Label Text="{Binding Country}"  FontSize="14" FontFamily="Source Sans Pro Semibold"/>
+      </StackLayout>
+      <StackLayout Padding="3" Orientation="Horizontal">
+        <Label>
+          <Label.FormattedText>
+            <FormattedString>
+              <FormattedString.Spans>
+                <Span
+                  Text="&#xf288; "
+                  FontFamily="{x:Static artina:FontAwesome.FontName}" />
+                <Span Text="Banking Product : " />
+              </FormattedString.Spans>
+            </FormattedString>
+          </Label.FormattedText>
+        </Label>
+        <Label Text="{Binding BankingProduct}"  FontSize="14" FontFamily="Source Sans Pro Semibold"/>
+      </StackLayout>
+      <StackLayout Padding="3" Orientation="Horizontal">
+        <Label>
+          <Label.FormattedText>
+            <FormattedString>
+              <FormattedString.Spans>
+                <Span
+                  Text="&#xf073; "
+                  FontFamily="{x:Static artina:FontAwesome.FontName}" />
+                <Span Text="Start Date : " />
+              </FormattedString.Spans>
+            </FormattedString>
+          </Label.FormattedText>
+        </Label>
+        <Label Text="{Binding StartDate}"  FontSize="14" FontFamily="Source Sans Pro Semibold"/>
+      </StackLayout>
+      <StackLayout Padding="3" Orientation="Horizontal">
+        <Label>
+          <Label.FormattedText>
+            <FormattedString>
+              <FormattedString.Spans>
+                <Span
+                  Text="&#xf017; "
+                  FontFamily="{x:Static artina:FontAwesome.FontName}" />
+                <Span Text="Tenor : " />
+              </FormattedString.Spans>
+            </FormattedString>
+          </Label.FormattedText>
+        </Label>
+        <Label Text="{Binding Tenor}"  FontSize="14" FontFamily="Source Sans Pro Semibold"/>
+      </StackLayout>
+      <StackLayout Padding="3" Orientation="Horizontal">
+        <Label>
+          <Label.FormattedText>
+            <FormattedString>
+              <FormattedString.Spans>
+                <Span
+                  Text="&#xf155; "
+                  FontFamily="{x:Static artina:FontAwesome.FontName}" />
+                <Span Text="Price : " />
+              </FormattedString.Spans>
+            </FormattedString>
+          </Label.FormattedText>
+        </Label>
+        <Label Text="{Binding Price}"  FontSize="14" FontFamily="Source Sans Pro Semibold"/>
+      </StackLayout>
+      <StackLayout Padding="3" Orientation="Horizontal">
+        <Label>
+          <Label.FormattedText>
+            <FormattedString>
+              <FormattedString.Spans>
+                <Span
+                  Text="&#xf0d6; "
+                  FontFamily="{x:Static artina:FontAwesome.FontName}" ForegroundColor="#f17100" />
+                <Span Text="Rate : " ForegroundColor="#f17100"/>
+              </FormattedString.Spans>
+            </FormattedString>
+          </Label.FormattedText>
+        </Label>
+        <Label Text="{Binding Interest}"  FontSize="14" FontFamily="Source Sans Pro Semibold" TextColor="#f17100"/>       
+      </StackLayout>
+      <BoxView Style="{StaticResource Horizontal1ptLineStyle}" VerticalOptions="End"/>
+
+      <Grid Padding="20,10,20,10" Grid.Row="2">
+        <artina:Button
+          Style="{DynamicResource ReverseActionButtonStyle}"
+          Text="Recalculate"  Clicked="OnRecalculateButtonClicked" />
+      </Grid>
+    </StackLayout>
+  </ScrollView>
+  <!--<Grid VerticalOptions="Fill">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="60*" />
+      <RowDefinition Height="40*" />
+      <RowDefinition Height="60" />
+    </Grid.RowDefinitions>
+
+
+    --><!--PRODUCT IMAGE--><!--
+    <chart:SfChart x:Name="ChartPie">
+      <chart:SfChart.Title>
+        <chart:ChartTitle Text="Projected Availablity" TextColor="Black" TextAlignment="Center">
+        </chart:ChartTitle>
+      </chart:SfChart.Title>
+      <chart:SfChart.Legend>
+        <chart:ChartLegend/>
+      </chart:SfChart.Legend>
+      <chart:PieSeries ItemsSource="{Binding Situation}"
+                         XBindingPath="Label" YBindingPath="OutstandingAmount"   EnableAnimation="True"
+            AnimationDuration="0.8">
+        <chart:PieSeries.ColorModel>
+          <chart:ChartColorModel Palette="Custom" CustomBrushes="{Binding Colors}">      
+          </chart:ChartColorModel>
+        </chart:PieSeries.ColorModel>
+        <chart:PieSeries.DataMarker>
+          <chart:ChartDataMarker LabelContent="Percentage" />
+        </chart:PieSeries.DataMarker>
+      </chart:PieSeries>
+    </chart:SfChart>
+
+    --><!-- PRODUCT INFO --><!--
+    <StackLayout Grid.Row="1">
+
+      --><!---TOOLBAR --><!--
+      <StackLayout
+        BackgroundColor="#f9f9f9"
+        TranslationY="-6">
+
+        <Grid
+          HeightRequest="30"
+          Padding="20,6,20,10"
+          RowSpacing="0"
+          ColumnSpacing="0">
+
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+          </Grid.ColumnDefinitions>
+
+          <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+          </Grid.RowDefinitions>
+
+          <StackLayout Grid.Row="0" Grid.Column="0"
+            Orientation="Horizontal"
+            HorizontalOptions="Start"
+            VerticalOptions="Center">
+
+            <Label
+              Text="{Binding Name}"
+              FontSize ="16"
+              TextColor ="{StaticResource AccentColor}"
+              FontAttributes="Bold"
+							/>
+
+          </StackLayout>
+
+          <StackLayout Grid.Row="1" Grid.Column="0"
+        Orientation="Horizontal"
+        HorizontalOptions="Start"
+        VerticalOptions="Center">
+            <Label Grid.Row="0" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Grid.Column="1">
+              <Label.FormattedText>
+                <FormattedString>
+                  <FormattedString.Spans>
+                    <Span
+                      Text="Rate "
+                      FontSize="{ StaticResource BaseFontSize }"
+                      ForegroundColor="{StaticResource AccentColor}" FontAttributes="Bold"
+                      FontFamily="{ x:Static artina:FontAwesome.FontName }" />
+                    <Span
+                      Text="1.2%"
+                      FontSize="{ StaticResource BaseFontSize }"
+                      ForegroundColor="{ StaticResource AccentColor }" />
+                  </FormattedString.Spans>
+                </FormattedString>
+              </Label.FormattedText>
+            </Label>
+          </StackLayout>
+
+          <Label Grid.Row="0" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Grid.Column="1">
+            <Label.FormattedText>
+              <FormattedString>
+                <FormattedString.Spans>
+                  <Span
+                    Text="Tenor "
+                    FontSize="{ StaticResource BaseFontSize }"
+                    ForegroundColor="{StaticResource AccentColor}" FontAttributes="Bold"
+                    FontFamily="{ x:Static artina:FontAwesome.FontName }" />
+                  <Span
+                    Text="1M, 1Y"
+                    FontSize="{ StaticResource BaseFontSize }"
+                    ForegroundColor="{ StaticResource AccentColor }" />
+                </FormattedString.Spans>
+              </FormattedString>
+            </Label.FormattedText>
+          </Label>
+
+        </Grid>
+
+        <BoxView Style="{StaticResource Horizontal1ptLineStyle}" VerticalOptions="End"/>
+
+      </StackLayout>
+
+      --><!---DESCRIPTION --><!--
+
+
+    </StackLayout>
+
+    -->
+    <!---BUY BUTTON -->
+    <!--
+    <Grid Padding="20,10,20,10" Grid.Row="2">
+      <artina:Button
+        Style="{DynamicResource ReverseActionButtonStyle}"
+        Text="Recalculate"  Clicked="OnRecalculateButtonClicked"
+					/>
+    </Grid>
+  </Grid>-->
+    </ContentPage.Content>
+</ContentPage>

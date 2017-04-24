@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UXDivers.Artina.Grial.Views.RLC.PriceCalculator.PriceCalculatorPage"
+             xmlns:uikit="clr-namespace:UXDivers.Artina.Grial;assembly=UXDivers.Artina.Grial"
+	xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"                        
+             Title="Price Calculator">
+  <AbsoluteLayout Padding="0">
+    <!--BACKGROUND IMAGE-->
+
+    <!--LAYOUT-->
+    <Grid Padding="5" VerticalOptions="FillAndExpand"
+			AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+			AbsoluteLayout.LayoutFlags="All">
+
+
+      <!--TEXT DESCRIPTION-->
+      <StackLayout WidthRequest="200"
+				VerticalOptions="FillAndExpand"
+				TranslationY="10">       
+        
+        <StackLayout Orientation="Vertical" Padding="5">
+          <StackLayout Padding="5" Orientation="Vertical">
+            <!--<Label Text="Banking Product"></Label>-->
+            <Label>
+              <Label.FormattedText>
+                <FormattedString>
+                  <FormattedString.Spans>
+                    <Span
+                      Text="&#xf196; "
+                      FontFamily="{x:Static artina:FontAwesome.FontName}" />
+                    <Span Text="Banking Product" />
+                  </FormattedString.Spans>
+                </FormattedString>
+              </Label.FormattedText>
+            </Label>
+            <Entry x:name="entryBankingProduct" Placeholder="Enter Banking Product" Text="{Binding BankingProduct}"  Focused="entryBankingProduct_Focused"/>
+          </StackLayout>
+          <StackLayout Orientation="Vertical" Padding="5">
+            <Label TextColor="White">
+              <Label.FormattedText>
+                <FormattedString>
+                  <FormattedString.Spans>
+                    <Span
+                      Text="&#xf073; "
+                      FontFamily="{x:Static artina:FontAwesome.FontName}" />
+                    <Span
+                      Text="Start Date" />
+                  </FormattedString.Spans>
+                </FormattedString>
+              </Label.FormattedText>
+            </Label>
+            <DatePicker VerticalOptions="CenterAndExpand"
+            Date="{Binding StartDate}"                        
+            MinimumDate="{Binding MinimumDate}"
+            MaximumDate="{Binding MaximumDate}">
+              <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
+            </DatePicker>
+          </StackLayout>
+          <StackLayout Orientation="Vertical" Padding="5">
+            <Label TextColor="White">
+              <Label.FormattedText>
+                <FormattedString>
+                  <FormattedString.Spans>
+                    <Span
+                      Text="&#xf073; "
+                      FontFamily="{x:Static artina:FontAwesome.FontName}" />
+                    <Span
+                      Text="End Date" />
+                  </FormattedString.Spans>
+                </FormattedString>
+              </Label.FormattedText>
+            </Label>
+            <DatePicker VerticalOptions="CenterAndExpand"
+          Date="{Binding EndDate}"
+          MinimumDate="{Binding MinimumDate}"
+          MaximumDate="{Binding MaximumDate}">
+              <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
+            </DatePicker>
+          </StackLayout>
+
+          <StackLayout Padding="5" Orientation="Vertical">
+            <Label>
+              <Label.FormattedText>
+                <FormattedString>
+                  <FormattedString.Spans>
+                    <Span
+                      Text="&#xf1de; "
+                      FontFamily="{x:Static artina:FontAwesome.FontName}" />
+                    <Span Text="Tenor" />                  
+                  </FormattedString.Spans>
+                </FormattedString>
+              </Label.FormattedText>
+            </Label>
+            <Slider x:name="sliderTenor" Value="{Binding Tenor}" Maximum="10" Minimum="3"/>          
+          <!--<rangeSlider:SfRangeSlider x:Name="rangeslider" ShowRange="true" Orientation="Horizontal" RangeStart="3" RangeEnd="10"  ValuePlacement="BottomRight" TickFrequency="3"/>-->
+          </StackLayout>
+
+          <StackLayout Padding="5" Orientation="Vertical">
+            <!--<Label Text="Loan Amount"></Label>-->
+            <Label>
+              <Label.FormattedText>
+                <FormattedString>
+                  <FormattedString.Spans>
+                    <Span
+                      Text="&#xf153; "
+                      FontFamily="{x:Static artina:FontAwesome.FontName}" />
+                    <Span Text="Loan Amount" />
+                  </FormattedString.Spans>
+                </FormattedString>
+              </Label.FormattedText>
+            </Label>
+            <Entry Placeholder="00" Keyboard="Numeric" Text="{Binding Amount}" />
+          </StackLayout>
+        </StackLayout>
+      </StackLayout>
+      <!--BUTTON NEXT-->
+      <StackLayout VerticalOptions="End">
+        <artina:Button
+					Style="{DynamicResource PrimaryActionButtonStyle}"
+					x:Name="PrimaryActionButton"
+					Text="Calculate Pricing"          
+          Clicked="OnPrimaryActionButtonClicked"
+					/>
+        <!--Clicked="OnPrimaryActionButtonClicked"-->
+        <!--Clicked="OnCalculateButtonClicked"-->
+      </StackLayout>
+    </Grid>
+  </AbsoluteLayout>
+</ContentPage>

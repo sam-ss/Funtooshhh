@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:templates="clr-namespace:UXDivers.Artina.Grial;assembly=UXDivers.Artina.Grial"
+             BackgroundColor="#FFFFFF"
+             x:Class="UXDivers.Artina.Grial.RLCRecentsTab">
+  <ListView
+      ItemsSource="{Binding Items}"
+      SeparatorVisibility="None"
+      SeparatorColor="#DFDFDF"
+     ItemTapped="OnItemTapped"
+      HasUnevenRows="false"
+      RowHeight="60">
+
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <templates:RLCListWithIconsItemTemplate/>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+
+  </ListView>
+</ContentPage>

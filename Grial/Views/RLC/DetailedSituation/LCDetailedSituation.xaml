@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UXDivers.Artina.Grial.Views.RLC.DetailedSituation.LCDetailedSituation"
+             xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
+  xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+             Title="LC">
+  
+  <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+    <chart:SfChart x:Name="Chart">
+      <chart:SfChart.Title>
+        <chart:ChartTitle Text="Total By Bucket" TextColor="Black" TextAlignment="Center">
+        </chart:ChartTitle>
+      </chart:SfChart.Title>
+      <chart:SfChart.PrimaryAxis>
+        <chart:CategoryAxis LabelRotationAngle="-45">
+          <chart:CategoryAxis.Title>
+            <chart:ChartAxisTitle Text ="Buckets"/>
+          </chart:CategoryAxis.Title>
+        </chart:CategoryAxis>
+      </chart:SfChart.PrimaryAxis>
+      <chart:SfChart.SecondaryAxis>
+        <chart:NumericalAxis LabelCreated ="secondaryAxis_LabelCreated">
+          <chart:NumericalAxis.Title>
+            <chart:ChartAxisTitle Text ="Amount (EUR)"/>
+          </chart:NumericalAxis.Title>
+        </chart:NumericalAxis>
+      </chart:SfChart.SecondaryAxis>
+      <chart:SfChart.Legend>
+        <chart:ChartLegend/>
+      </chart:SfChart.Legend>
+      <chart:SfChart.Series>
+        <chart:ColumnSeries
+               XBindingPath="TenorType"
+               YBindingPath="LimitAmount"
+               Label="Limit"
+               EnableDataPointSelection = "false"
+               EnableAnimation="True"
+               AnimationDuration="0.8"
+               Color="#9b9c9d">
+          <chart:ColumnSeries.DataMarker>
+            <chart:ChartDataMarker LabelContent="YValue">
+              <chart:ChartDataMarker.LabelStyle>
+                <chart:DataMarkerLabelStyle LabelPosition = "Auto"/>
+              </chart:ChartDataMarker.LabelStyle>
+            </chart:ChartDataMarker>
+          </chart:ColumnSeries.DataMarker>
+        </chart:ColumnSeries>
+        <chart:ColumnSeries
+              XBindingPath="TenorType"
+              YBindingPath="OutstandingAmount"
+              Label="Outstanding"
+              EnableDataPointSelection = "false"
+              EnableAnimation="True"
+              AnimationDuration="0.8"
+              Color="#35bd5b">
+          <chart:ColumnSeries.DataMarker>
+            <chart:ChartDataMarker LabelContent="YValue">
+              <chart:ChartDataMarker.LabelStyle>
+                <chart:DataMarkerLabelStyle LabelPosition = "Auto"/>
+              </chart:ChartDataMarker.LabelStyle>
+            </chart:ChartDataMarker>
+          </chart:ColumnSeries.DataMarker>
+        </chart:ColumnSeries>
+      </chart:SfChart.Series>
+    </chart:SfChart>
+  </AbsoluteLayout>
+</ContentPage>

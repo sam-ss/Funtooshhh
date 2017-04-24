@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:uikit="clr-namespace:UXDivers.Artina.Grial;assembly=UXDivers.Artina.Grial"
+	xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
+	x:Class="UXDivers.Artina.Grial.Views.Dashboards.PricingCalculatorDetailSelection"
+	Title="{Binding Title}"
+	BackgroundColor="#DFDFDF">
+
+  <AbsoluteLayout Padding="0">
+    <!--BACKGROUND IMAGE-->
+
+    <!--LAYOUT-->
+    <Grid Padding="5" VerticalOptions="FillAndExpand"
+			AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+			AbsoluteLayout.LayoutFlags="All">
+
+    
+      <!--TEXT DESCRIPTION-->
+      <StackLayout WidthRequest="200"
+				VerticalOptions="FillAndExpand"
+				TranslationY="60">
+
+        <StackLayout Orientation="Vertical" Padding="5">
+          <StackLayout Orientation="Vertical" Padding="5">
+            <Label TextColor="White">
+              <Label.FormattedText>
+                <FormattedString>
+                  <FormattedString.Spans>
+                    <Span
+                      Text="&#xf073; "
+                      FontFamily="{x:Static artina:FontAwesome.FontName}" />
+                    <Span
+                      Text="Start Date" />
+                  </FormattedString.Spans>
+                </FormattedString>
+              </Label.FormattedText>
+            </Label>
+            <DatePicker VerticalOptions="CenterAndExpand"
+            Date="{Binding Now}" 
+                        
+            MinimumDate="{Binding MinimumDate}"
+            MaximumDate="{Binding MaximumDate}">
+              <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
+            </DatePicker>
+          </StackLayout>
+          <StackLayout Orientation="Vertical" Padding="5">
+            <Label TextColor="White">
+              <Label.FormattedText>
+                <FormattedString>
+                  <FormattedString.Spans>
+                    <Span
+                      Text="&#xf073; "
+                      FontFamily="{x:Static artina:FontAwesome.FontName}" />
+                    <Span
+                      Text="End Date" />
+                  </FormattedString.Spans>
+                </FormattedString>
+              </Label.FormattedText>
+            </Label>
+            <DatePicker VerticalOptions="CenterAndExpand"
+          Date="{Binding Now}" 
+          MinimumDate="{Binding MinimumDate}"
+          MaximumDate="{Binding MaximumDate}">
+              <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
+            </DatePicker>
+          </StackLayout>
+
+          <StackLayout Padding="2" Orientation="Vertical">
+            <Label>
+              <Label.FormattedText>
+                <FormattedString>
+                  <FormattedString.Spans>
+                    <Span
+                      Text="&#xf1de; "
+                      FontFamily="{x:Static artina:FontAwesome.FontName}" />
+                    <Span Text="Select Tenor" />
+                  </FormattedString.Spans>
+                </FormattedString>
+              </Label.FormattedText>
+            </Label>
+            <Slider Maximum="100" Value="50" />
+          </StackLayout>
+
+          <StackLayout Padding="2" Orientation="Vertical">
+            <Label Text="Enter Loan Amount"></Label>
+            <Entry Placeholder="00" />
+          </StackLayout>
+        </StackLayout>
+      </StackLayout>
+      <!--BUTTON NEXT-->
+      <StackLayout VerticalOptions="End">
+        <artina:Button
+					Style="{DynamicResource PrimaryActionButtonStyle}"
+					x:Name="PrimaryActionButton"
+					Text="CALCULATE"
+          Clicked="OnCalculateButtonClicked"
+					/>
+        <!--Clicked="OnPrimaryActionButtonClicked"-->
+      </StackLayout>
+    </Grid>
+  </AbsoluteLayout>
+</ContentPage>

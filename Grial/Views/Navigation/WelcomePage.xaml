@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="UXDivers.Artina.Grial.WelcomePage"
+	BackgroundImage="{ StaticResource WelcomeBackgroundImage }"
+	xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
+	xmlns:commonViews="clr-namespace:UXDivers.Artina.Grial;assembly=UXDivers.Artina.Grial">
+
+	<AbsoluteLayout 
+		Padding="20">
+
+		<!--LOGO-->
+		<commonViews:BrandBlock /> 
+
+		<!--CLAIM TEXT-->
+		<Label
+			LineBreakMode="WordWrap"
+			Text="Your money. &#10; Our Intelligence."
+			TextColor="White"
+			HorizontalTextAlignment="Center"
+			VerticalTextAlignment="Center"
+			FontSize="36"
+			TranslationY="-20"
+			AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+			AbsoluteLayout.LayoutFlags="All"
+		/>
+
+    <Grid
+      TranslationY="-20"
+			AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+			AbsoluteLayout.LayoutFlags="All"
+        >
+
+      <StackLayout
+        Grid.Row="0"
+        VerticalOptions="StartAndExpand" >
+        <!---EMAIL FIELD-->
+        <Entry
+          Placeholder="E-mail"
+          Style="{DynamicResource ArtinaLoginEntryStyle}" />
+
+        <Label
+          HorizontalOptions="Start"
+          Text=" Please enter a valid e-mail " IsVisible="false"
+          Style="{DynamicResource ValidationEntryErrorStyle}"
+						/>
+
+      </StackLayout>
+
+      <!---PASSWORD FIELD-->
+      <Entry
+        Grid.Row="2"
+        Placeholder="Password"
+        IsPassword="true"
+        Style="{DynamicResource ArtinaLoginEntryStyle}"
+        VerticalOptions="StartAndExpand" />
+
+    </Grid>
+		<!--BUTTONS-->
+		<StackLayout 
+			VerticalOptions="EndAndExpand" 
+			HorizontalOptions="FillAndExpand" 
+			AbsoluteLayout.LayoutBounds="0, 1, 1, 100"
+			AbsoluteLayout.LayoutFlags="XProportional, YProportional, WidthProportional"
+			Spacing="10"
+			>
+		
+		<artina:Button 
+			
+			Style="{DynamicResource SecondaryActionButtonStyle}" 
+			Text="See our walkthrough"
+			VerticalOptions="EndAndExpand"/>
+		
+		<artina:Button 
+			Clicked="OnBrowseSamplesButtonTapped" 
+			Style="{DynamicResource PrimaryActionButtonStyle}" 
+			Text="Browse our samples" 
+			VerticalOptions="EndAndExpand"/>
+		
+		</StackLayout>
+
+	</AbsoluteLayout>
+
+</ContentPage>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:local="clr-namespace:UXDivers.Artina.Grial.Views.Navigation;assembly=UXDivers.Artina.Grial"
+                xmlns:local1="clr-namespace:UXDivers.Artina.Grial;assembly=UXDivers.Artina.Grial"
+          Title="{Binding Title}"
+
+             x:Class="UXDivers.Artina.Grial.Views.Navigation.MainTabPage">
+  <local1:DashboardPage Title="Favorite" />
+  <local:RecentUsedRLC Title="Recents" />
+  <local1:CategoriesListWithIconsPage Title="All" />
+
+</TabbedPage>

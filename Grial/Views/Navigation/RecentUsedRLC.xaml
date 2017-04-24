@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:templates="clr-namespace:UXDivers.Artina.Grial;assembly=UXDivers.Artina.Grial"
+             x:Class="UXDivers.Artina.Grial.Views.Navigation.RecentUsedRLC">
+  <ListView
+      ItemsSource="{Binding SamplesCategories}"
+      SeparatorVisibility="None"
+      SeparatorColor="#DFDFDF"
+      ItemTapped="OnItemTapped"
+      HasUnevenRows="false"
+      RowHeight="60">
+
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <templates:CategoriesListWithIconsItemTemplate/>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+
+  </ListView>
+</ContentPage>
